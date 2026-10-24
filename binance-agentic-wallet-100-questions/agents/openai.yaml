@@ -1,0 +1,4 @@
+interface:
+  display_name: "币安Agentic Wallet100问"
+  short_description: "给 agent 阅读的钱包说明书：100问、交易边界、异常处理与扩展方向"
+  default_prompt: "使用 $binance-agentic-wallet-100-questions 回答我的币安钱包问题，核对授权、操作路由和停止条件。"

@@ -1,0 +1,44 @@
+{
+  "_note": "建议策略模板，非币安原生配置；null=未配置，不视为无限；下列默认值仅用于本skill初始研究模式，不冒充用户既有习惯。",
+  "mode": "research_only",
+  "provider": "binance-agentic-wallet",
+  "authorization": {
+    "source": null,
+    "expires_at": null,
+    "skip_per_action_confirmation": false
+  },
+  "allowed_chains": [],
+  "allowed_assets": [],
+  "allowed_recipients": [],
+  "allowed_actions": [],
+  "limits": {
+    "per_action_usd": null,
+    "total_gross_outflow_usd": null,
+    "budget_window": null,
+    "max_asset_position_usd": null,
+    "max_daily_loss_usd": null,
+    "loss_definition": null,
+    "max_slippage_percent": null,
+    "max_price_impact_percent": null,
+    "max_gas_usd": null,
+    "min_native_gas_reserve": null,
+    "max_quote_age_seconds": null,
+    "max_signal_age_seconds": null
+  },
+  "behavior": {
+    "allow_averaging_down": false,
+    "allow_market_fallback": false,
+    "on_audit_unavailable": "pause",
+    "on_unknown_submission": "reconcile_before_retry",
+    "max_automatic_fund_resubmissions": 0
+  },
+  "service_payments": {
+    "allowed_resources": [],
+    "per_request_usd": null,
+    "total_usd": null,
+    "budget_window": null,
+    "include_approval_gas_in_total": true,
+    "window_rule": "单独配置采购预算窗口；null时不能自动付款。服务费与必要授权gas共同计入采购总支出及全局总资金流出。"
+  },
+  "enforcement": "本地执行器需实现校验与预算预占；平台限制另从wallet settings读取，双重满足后才可执行。"
+}
