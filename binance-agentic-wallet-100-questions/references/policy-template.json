@@ -50,7 +50,40 @@
       "sell_slippage_percent": null
     }
   },
+  "cognition_engine": {
+    "_note": "认知引擎配置：agent 执行任何操作前的前置判断层。null=未配置，使用认知引擎默认规则。",
+    "enabled": true,
+    "min_evidence_tier_for_execution": "B",
+    "require_cross_validation": true,
+    "min_independent_sources": 2,
+    "enforce_decision_cascade": true,
+    "max_signal_grade_for_entry": "confirm",
+    "lifecycle_stages_allowed_for_entry": ["early", "confirming"],
+    "require_human_confirmation_for_level_3": true,
+    "bias_check_enabled": true,
+    "feedback_logging_enabled": true,
+    "wallet_persona": {
+      "enabled": false,
+      "min_trade_sample_size": 10,
+      "min_win_rate_percent": 30,
+      "max_daily_trades_for_human_like": 50,
+      "grade_a_min_trust_score": 80,
+      "watch_mode_default": "discovery_and_confirm",
+      "invalidator_dormant_days": 30
+    },
+    "on_chain_audit": {
+      "enabled": false,
+      "check_verified_source": true,
+      "check_function_selectors": true,
+      "check_lp_lock": true,
+      "check_holder_concentration": true,
+      "max_top10_holder_percent": 45,
+      "min_holder_count": 30,
+      "require_sell_eth_reflow_check": true
+    }
+  },
   "service_payments": {
+    "_note": "服务采购预算配置",
     "allowed_resources": [],
     "per_request_usd": null,
     "total_usd": null,

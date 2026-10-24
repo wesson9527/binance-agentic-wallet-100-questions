@@ -941,6 +941,65 @@
 
 **边界 / 停止条件：** 聪明钱买入 ≠ 该币安全；诱多、自买自卖也能刷出假信号。信号只作证据，不直接成为下单授权。
 
+---
+
+# Agent 认知引擎（前置判断层）
+
+> 认知引擎不是 100 问的补充问答，而是**执行任何操作前必须运行的底层框架**。它回答的不是"怎么操作"，而是"什么时候该操作、什么时候该停、怎么判断"。
+
+## 为什么需要认知引擎
+
+当前 100 问（Q001–Q110）解决了「怎么操作」的问题：怎么登录、怎么转账、怎么下单、怎么防貔貅。但没有解决「怎么判断」的问题：
+
+- 面对不确定信息，agent 该信什么、不信什么？
+- 单一来源的信号能不能作为执行依据？
+- 用户从"看看这个币"直接跳到"买它"，agent 该不该拦？
+- 怎么区分"发现源"和"确认源"？
+- 怎么从一堆地址里筛出真正值得跟的聪明钱？
+- 合约未验证、审计不可用时，agent 能自己做什么？
+
+认知引擎就是解决这些问题的。它把作者在其他 5 个仓库（chokepoint-atlas、meme-narrative-radar、money-money-come、qiuqiu-robin-agent、okx-sol-meme-agent）中沉淀的方法论，提炼成 agent 可执行的认知规则。
+
+## 认知引擎核心模块
+
+| 模块 | 解决什么问题 | 来源 |
+|---|---|---|
+| **证据层级** | 给每条信息打可信度标签（Tier A/B/C/D） | chokepoint-atlas |
+| **事实五层分层** | 区分官方声明、前端实现、链上事实、推断、未决问题 | meme-narrative-radar |
+| **决策分级** | 先给方向 → 再给候选 → 最后执行，绝不越级 | chokepoint-atlas |
+| **信号交叉验证** | 单一来源 ≠ 事实；共振才可信 | money-money-come + meme-narrative-radar |
+| **信号生命周期** | 判断信号处于 early/confirming/late/overheated/thin/unknown 哪个阶段 | money-money-come |
+| **地址画像** | 给聪明钱地址做 Wallet Persona + A/B/C/D 分级决策 | money-money-come |
+| **自主审计速查** | 合约未验证时，用字节码扫描、LP 锁定检查、内部交易追踪自己做基本判断 | meme-narrative-radar + qiuqiu-robin-agent |
+| **认知偏差清单** | 检查确认偏差、叙事压倒证据、假精度、群体盲从等 | 综合 |
+| **反馈循环** | 记录执行日志、定期复盘、从错误中学习 | money-money-come |
+
+## 执行规则
+
+**每次涉及资金、签名、转账、交易或授权的请求，agent 必须：**
+
+1. 先加载认知引擎（`references/12-cognition-engine.md`）
+2. 运行 8 步认知检查（意图澄清 → 证据收集 → 可信度分级 → 交叉验证 → 决策分级 → 边界检查 → 认知偏差检查 → 执行检查）
+3. 任一检查不通过，操作降级或暂停，向用户报告原因
+4. 所有检查通过，才进入 100 问的操作指令层
+5. 执行后记录日志，供后续复盘
+
+**认知引擎与 100 问的协作关系：**
+
+```
+用户请求 → 认知引擎（判断层）→ 100 问（操作层）→ 执行
+              ↑_____________________________|
+                        （执行后反馈，更新认知）
+```
+
+- 100 问告诉 agent「怎么操作」
+- 认知引擎告诉 agent「什么时候该操作、什么时候该停、怎么判断」
+- 两者缺一不可：会操作但不会判断 = 机器人；会判断但不会操作 = 顾问
+- 目标：让 agent 成为「会判断的操作者」
+
+详细规则、检查清单、函数选择器表、证据标注格式，见 skill 包内 `references/12-cognition-engine.md`。
+
+---
 
 # 资料索引与核验方法
 
@@ -973,6 +1032,10 @@
 - **C04** [Coinbase CLI Skills：查询、支付及服务商业化](https://docs.cdp.coinbase.com/agentic-wallet/cli/skills/overview)
 - **C05** [Coinbase 产品页：支出限制、密钥隔离和KYT](https://www.coinbase.com/developer-platform/products/agentic-wallets)
 - **U01** [okx-sol-meme-agent：作者本人 Sol meme 风控脚本，含风险扫描分档、卖出前报价验证、流动性/持有人门槛、止损止盈回撤、地址画像排除假信号](https://github.com/wesson9527/okx-sol-meme-agent)
+- **U02** [chokepoint-atlas：证据层级（Evidence Ladder）、评分框架、分阶段输出、可证伪性检查](https://github.com/wesson9527/chokepoint-atlas)
+- **U03** [meme-narrative-radar：事实五层分层、叙事判断、字节码扫描、内部交易追踪、合约审计速查](https://github.com/wesson9527/meme-narrative-radar)
+- **U04** [money-money-come：Wallet Persona 画像、Wallet Decision 分级、信号生命周期、信号分级、Gas Radar、反馈循环](https://github.com/wesson9527/money-money-come)
+- **U05** [qiuqiu-robin-agent：CA-First 筛查流程、DexScreener 付费资料识别、LP 锁定验证、降级规则](https://github.com/wesson9527/qiuqiu-robin-agent)
 
 ## 证据口径
 
@@ -986,4 +1049,4 @@
 
 ## 来源适用范围
 
-S01—S03用于产品定位；S04—S05用于安装登录；S06用于权限；S07—S09用于资产转账；S10—S12用于交易与审计；S13—S15用于授权和异常；S16—S19用于高级模块。C01—C05只用于友商对照，不能作为币安功能支持证据。
+S01—S03用于产品定位；S04—S05用于安装登录；S06用于权限；S07—S09用于资产转账；S10—S12用于交易与审计；S13—S15用于授权和异常；S16—S19用于高级模块。C01—C05只用于友商对照，不能作为币安功能支持证据。U01—U05只用于认知引擎和风控方法来源，同样不能作为币安功能支持证据。
