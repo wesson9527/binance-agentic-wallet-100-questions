@@ -20,9 +20,11 @@
 
 一句话：**它不是科普，是给 agent 的「操作规范 + 踩坑清单」。**
 
+第 11 章专门讲 **meme 币风控**：怎么识破貔貅盘（只能买不能卖）、怎么在买入前用「卖出方向报价」验证可卖性、怎么设流动性/持有人门槛、怎么用止损+分批止盈+回撤保护离场，以及怎么排除「假聪明钱」信号——这些都是冲土狗最容易被套牢的地方。
+
 ---
 
-## 二、100 问结构（10 章 × 10 问）
+## 二、100 问结构（10 章 × 10 问 + meme 风控章）
 
 | 问题范围 | 章节 | 讲什么 |
 |---|---|---|
@@ -36,6 +38,7 @@
 | Q071–080 | DeFi 与签名 | 交易预览、仓位、开发者模式、EIP-712 |
 | Q081–090 | 支付与友商 | x402、跨产品边界、友商能力对照 |
 | Q091–100 | 扩展与验收 | 跟单、定投、巡检、维护、验收清单 |
+| Q101–110 | **Meme 币风控** | 貔貅盘识别、rug pull 防范、卖出前报价验证、止损止盈、假聪明钱排除 |
 
 完整内容见 [`币安Agentic-Wallet100问.md`](./币安Agentic-Wallet100问.md)。
 
@@ -104,10 +107,11 @@ npx skills use wesson9527/binance-agentic-wallet-100-questions@binance-agentic-w
 ├── binance-agentic-wallet-100-questions/    # skill 源码目录
 │   ├── SKILL.md                             # skill 主入口（含 frontmatter）
 │   ├── agents/openai.yaml                   # 展示名与默认提示
-│   └── references/                          # 10 章问答 + 策略模板 + 来源索引
+│   └── references/                          # 11 章问答 + 策略模板 + 来源索引
 │       ├── 01-basics.md … 10-extensions.md
+│       ├── 11-meme-risks.md                 # meme 币风控（貔貅/rug pull）
 │       ├── policy-template.json             # 策略模板（默认 research_only）
-│       └── sources.md                       # 26 个官方/友商资料索引
+│       └── sources.md                       # 27 个官方/友商/作者资料索引
 └── README.md
 ```
 

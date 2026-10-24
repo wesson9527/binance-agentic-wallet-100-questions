@@ -28,6 +28,7 @@
 - **C03** [MetaMask：Agentic wallet security，权限和签名隔离](https://metamask.io/news/agentic-wallet-security)
 - **C04** [Coinbase CLI Skills：查询、支付及服务商业化](https://docs.cdp.coinbase.com/agentic-wallet/cli/skills/overview)
 - **C05** [Coinbase 产品页：支出限制、密钥隔离和KYT](https://www.coinbase.com/developer-platform/products/agentic-wallets)
+- **U01** [okx-sol-meme-agent：作者本人 Sol meme 风控脚本，含风险扫描分档、卖出前报价验证、流动性/持有人门槛、止损止盈回撤、地址画像排除假信号](https://github.com/wesson9527/okx-sol-meme-agent)
 
 ## 证据口径
 
@@ -41,4 +42,4 @@
 
 ## 来源适用范围
 
-S01—S03用于产品定位；S04—S05用于安装登录；S06用于权限；S07—S09用于资产转账；S10—S12用于交易与审计；S13—S15用于授权和异常；S16—S19用于高级模块。C01—C05只用于友商对照，不能作为币安功能支持证据。
+S01—S03用于产品定位；S04—S05用于安装登录；S06用于权限；S07—S09用于资产转账；S10—S12用于交易与审计；S13—S15用于授权和异常；S16—S19用于高级模块。C01—C05只用于友商对照，不能作为币安功能支持证据。U01只用于 meme 币风控（第11章）的方法来源，同样不能作为币安功能支持证据。

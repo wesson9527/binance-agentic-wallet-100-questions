@@ -1,14 +1,14 @@
 ---
 name: binance-agentic-wallet-100-questions
-description: 币安Agentic Wallet100问。用中文问答指导 agent 理解币安链上钱包、选择官方 baw 路由、核对交易授权与风险边界，并设计受约束的自动化扩展。适用于产品问答、操作排错、交易策略约束与钱包工作流；不代替官方钱包 skill，不用于币安交易所合约下单。
+description: 币安Agentic Wallet100问。用中文问答指导 agent 理解币安链上钱包、选择官方 baw 路由、核对交易授权与风险边界，并设计受约束的自动化扩展。涵盖 meme 币风险与貔貅盘识别、rug pull 防范、聪明钱信号辨伪。适用于产品问答、操作排错、交易策略约束、meme 币风控与钱包工作流；不代替官方钱包 skill，不用于币安交易所合约下单。
 metadata:
-  version: '1.0.0'
+  version: '1.1.0'
   verified_at: '2026-10-24'
 ---
 
 # 币安Agentic Wallet100问
 
-这是给 agent 阅读的产品使用说明。使用100个问题将用户意图映射到官方能力，并明确执行前提与停止条件。中文展示名保持如上；技术标识使用 `binance-agentic-wallet-100-questions`。
+这是给 agent 阅读的产品使用说明。使用100个问题（另有第11章 meme 币风控10问，共110问）将用户意图映射到官方能力，并明确执行前提与停止条件。中文展示名保持如上；技术标识使用 `binance-agentic-wallet-100-questions`。
 
 本稿为用户定制的研究与工作流skill，尚未对外发布。事实、执行规范、扩展建议分别标注；个人仓位、止损、预算尚未提供，不得声称已复刻用户两个月全部交易经验。
 
@@ -30,6 +30,7 @@ metadata:
 | Q071—080 | [DeFi与签名](references/08-defi.md) | 预览、仓位、开发者模式 |
 | Q081—090 | [支付与友商](references/09-payments.md) | x402、跨产品边界 |
 | Q091—100 | [扩展与验收](references/10-extensions.md) | 跟单、定投、巡检、维护 |
+| Q101—110 | [Meme币风控](references/11-meme-risks.md) | 貔貅、rug pull、卖出验证、假信号 |
 
 实际执行前，在本地已安装官方skill中读取对应reference；没有本地副本时从资料索引的官方链接读取。精确参数以当前文档和CLI help交叉核对，执行命令输出使用 `--json`。本问答中的命令片段只是路由标识，不能当作完整可运行脚本。
 

@@ -32,6 +32,24 @@
     "on_unknown_submission": "reconcile_before_retry",
     "max_automatic_fund_resubmissions": 0
   },
+  "meme_risk": {
+    "_note": "meme/土狗 交易专用风控，null=未配置，不视为无限或默认通过。",
+    "block_unknown_risk": true,
+    "block_risk_levels": ["HIGH", "CRITICAL"],
+    "min_liquidity_usd": null,
+    "min_holders": null,
+    "min_market_cap_usd": null,
+    "max_market_cap_usd": null,
+    "max_buy_tax_percent": null,
+    "max_sell_tax_percent": null,
+    "require_sell_quote_validation": true,
+    "exit_rules": {
+      "stop_loss_percent": null,
+      "take_profits": [],
+      "trailing_stop_percent": null,
+      "sell_slippage_percent": null
+    }
+  },
   "service_payments": {
     "allowed_resources": [],
     "per_request_usd": null,
